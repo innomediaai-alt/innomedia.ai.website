@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InnoMedia - Agentic AI for Modern Enterprises</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="n8n-chat"></div>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+      createChat({
+        webhookUrl: 'https://ai-demo.innomedia.com:5678/webhook/64f3476d-5dd1-40a5-b4ac-a91ae0cf8fcb/chat',
+        webhookConfig: {
+          method: 'POST',
+          headers: {}
+        },
+        target: '#n8n-chat',
+        mode: 'window',
+        chatInputKey: 'chatInput',
+        chatSessionKey: 'sessionId',
+        loadPreviousSession: true,
+        metadata: {},
+        showWelcomeScreen: false,
+        defaultLanguage: 'en',
+        initialMessages: [
+          'Hi there! I\'m Inno, your virtual guide to InnoMedia\'s VoIP products. 👋',
+          'Just so you know, our team of Agentic AI solution specialists will be available to chat here soon. 👋',
+          'How can I assist you today?'
+        ],
+        i18n: {
+          en: {
+            title: 'InnoMedia VoIP Support 👋',
+            subtitle: "Start a chat. We're here to help you 24/7.",
+            footer: '',
+            getStarted: 'New Conversation',
+            inputPlaceholder: 'Type your question..',
+          },
+        },
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
